@@ -57,15 +57,17 @@ public class Cracker {
 	
 	
 	
-	
+	//scan the user's input
 	menuChoice = myScanner.next();
-	
+	//as long as the menu choice is 1-5 enter if statement
 	if (menuChoice.equals("1") || menuChoice.equals("2") || menuChoice.equals("3") || menuChoice.equals("4") || menuChoice.equals("5")){
-			
+		//begin to read the file that is passed	
 		try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
+			//as long as there is more to read in the file
 			while ((fileContents = br.readLine()) != null) {
-				String[] splited = fileContents.split("[\\:\\s]+");
-				String currentHash = splited[1];
+				//split the line by the following symbols
+				String[] split = fileContents.split("[\\:\\s]+");
+				String currentHash = split[1];
 				System.out.println(currentHash);
 				timeToCrack(Integer.parseInt(menuChoice), currentHash);
 				
@@ -80,11 +82,7 @@ public class Cracker {
 
 	myScanner.close();
 	System.out.println("Finished");
-	//open a file
 	
-	//print to output and to the file we opened in the format encypted:password
-	
-	//program completes once cracked all passwords or run out of combos
 	
 	}//end main
 	
