@@ -94,26 +94,60 @@ public class Cracker {
 		//Rule 1: seven char word from /usr/share/dict/words (linux or mac)
 		//which gets 1st letter capitalized and 1 digit number appended
 		if (ruleNum == 1) {
-			
+
+			if(hash.length()<= 7) {
+				hash.toUpperCase(); //Cap sting
+
+				for(int i = 0; i<=9; i++){  //loop for appending the int and hashing.
+					String appendedHash = hash+i;
+					getSHA(appendedHash);
+				}
+			}
 		   	       
 			
 		}
 		//Rule 2: Five digit password with at least one of the following in beginning: *,~,!,#
 		else if (ruleNum == 2) {
-			
+			if(hash.length()<=6) {
+				if (hash.matches("\\*\\d+")) {
+					getSHA(hash);
+				}
+				else if (hash.matches("~\\d+")) {
+					getSHA(hash);
+				}
+				else if (hash.matches("!\\d+")) {
+					getSHA(hash);
+				}
+				else if (hash.matches("#\\d+")) {
+					getSHA(hash);
+				}
+			}
 		}
 		//Rule 3: Five char word from /usr/share/dict/words with the letter
 		//'a' in it which gets replaced with '@' and '1' is subbed with 'l'
 		else if (ruleNum == 3) {
-			
+			if(hash.length()<=5) {
+
+				hash.replace(String"a", String"@");
+				hash.replace(String"l", String"1");
+
+				getSHA(hash);
+			}
 		}
 		//Rule 4: Any word that is made up with up to 7 digits length
 		else if (ruleNum == 4) {
-			
+			if (hash.length() < 8 && (hash.matches("\\d+") ))//checking for digits)
+			{
+				getSHA(hash);
+			}
 		}
+		// the .matches method was found:
+		// https://stackoverflow.com/questions/15111420/how-to-check-if-a-string-contains-only-digits-in-java/15111450
+
+
 		//Rule 5: Any number of chars single word from /usr/share/dict/words
 		else {
-			
+			getSHA(hash);
 		}
 			
 		}
