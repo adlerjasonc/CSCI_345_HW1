@@ -1,0 +1,3 @@
+7777:41c991eb6a66242c0454191244278183ce58cf4a6bcd372f799e4b9cc01886af
+homer:84b175349a3d5a8bcabda1ab8eb84e3c36139f27e3a04b17b47c497a3b577940:20:Homer Simpson:/home/homer:/bin/tcsh
+Maggie:ab2620f9b7154d9f9dc1b3c2d949d85d595fe77f45411b3dbe6e5b47da564177:42:20:Maggie Simpson:/home/maggie:/bin/tcsh
